@@ -1,28 +1,28 @@
-		CREATE DATABASE Optus;
-		USE Optus;
+		create database Optus;
+		use Optus;
 
-		CREATE TABLE TipoUsuario(
+		create table TipoUsuario(
 		IdTipoUsuario INT PRIMARY KEY IDENTITY,
 		Titulo VARCHAR(200)
 		);
 
-		CREATE TABLE Usuario(
+		create table Usuario(
 		IdUsuario INT PRIMARY KEY IDENTITY,
 		Nome VARCHAR(200),
 		TipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario (IdTipoUsuario)
 		);
 
-		CREATE TABLE Artistas(
+		create table Artistas(
 		IdArtistas INT PRIMARY KEY IDENTITY,
 		Nome VARCHAR(200)
 		);
 
-		CREATE TABLE Estilos(
+		create table Estilos(
 		IdEstilo INT PRIMARY KEY IDENTITY,
 		Nome VARCHAR(200)
 		);
 
-		CREATE TABLE Albuns(
+		create table Albuns(
 		IdAlbum INT PRIMARY KEY IDENTITY,
 		Nome VARCHAR(200),
 		DataLancamento date,
@@ -65,14 +65,14 @@
 			   ('Nego Ney destruiu a africa', '10-12-2003','12341','500',2,2),
 			   ('Nego ney matou varios', '10-12-2003','53132','500',3,3),
 			   ('Nego ney destruiu a Amazonia', '10-12-2003','12351','500',4,4),
-			   ('Plebeu','10-12-2003','31523','500',5,5);
+			   ('Minha mãe matou o josé','10-12-2003','31523','500',5,5);
 
-		DELETE FROM Albuns
-		WHERE IdAlbum = 5;
+		delete from Albuns
+		where IdAlbum = 5;
 
-		UPDATE TipoUsuario
-		SET Titulo = 'Comum'
-		WHERE IdTipoUsuario = 4;
+		update TipoUsuario
+		set Titulo = 'Comum'
+		where IdTipoUsuario = 4;
 
 			   truncate table Albuns;
 
