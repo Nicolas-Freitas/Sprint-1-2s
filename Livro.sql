@@ -61,3 +61,16 @@ WHERE IdAutor = 1;
 select * from Autores;
 select * from Generos;
 select * from Livros;
+
+select IdAutor,Titulo from Livros
+
+select IdGenero,Titulo from Livros
+
+select IdAutor,Titulo from Livros
+
+select IdAutor,IdGenero,Titulo from Livros
+
+select NomeAutor 
+	from Autores
+	join Livros
+			inner join on 

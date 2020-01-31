@@ -1,5 +1,5 @@
-		create database Optus;
-		use Optus;
+		create database OptusCorrect;
+		use OptusCorrect;
 
 		create table TipoUsuario(
 		IdTipoUsuario INT PRIMARY KEY IDENTITY,
@@ -74,10 +74,34 @@
 		set Titulo = 'Comum'
 		where IdTipoUsuario = 4;
 
-			   truncate table Albuns;
+		update Albuns
+		set Visualizacao = 50002892
+		where IdAlbum = 3;
+
+		delete from Albuns 
+		where IdAlbum in (3,2);
+
+		update TipoUsuario
+		set Titulo = 'Administrador'
+		where IdTipoUsuario in (3,4);
 
 		select * from Artistas;
 		select * from TipoUsuario;
 		select * from Usuario;
 		select * from Albuns;
 		select * from Estilos;
+
+		select Titulo from TipoUsuario;
+
+		select IdArtistas,Nome from Albuns
+		where IdArtistas = 1;
+
+		select IdArtistas,Nome from Albuns
+		where DataLancamento = '10-12-2003';
+
+		select IdArtistas,Nome from Albuns
+		where IdEstilo = 1;
+
+		select * from Albuns order by DataLancamento asc;
+		
+		select Nome, IdArtistas from Albuns order by DataLancamento asc;
