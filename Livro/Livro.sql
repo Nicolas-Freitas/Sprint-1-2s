@@ -64,6 +64,21 @@ WHERE IdLivro = 3;
 
 delete from Autores
 where IdAutor = 1;
+------------------------------------------------extras-------------------------------------------------
+
+
+alter table Livros add Sinopse varchar(300) default null, DataLancamento date default null, Publicacao varchar(5) default null;
+
+--insert into Lirvros IdLivro (Sinopse, DataLancamento, Publicacao)
+--values  ('foafowawaof','10-10-2010','Sim'),
+--		('foafowawaof','10-10-2010','Sim'),
+--		('foafowawaof','10-10-2010','Sim'),
+--		('foafowawaof','10-10-2010','Sim');
+
+
+select Livros.Titulo, Generos.Nome, Autores.NomeAutor, Livros.Sinopse, Livros.DataLancamento, Livros.Publicacao from Livros 
+inner join Generos on Generos.IdGenero = Livros.IdGenero
+inner join Autores on Autores.IdAutor = Livros.IdAutor;
 
 --------------------------------------------------DQL--------------------------------------------------
 	
