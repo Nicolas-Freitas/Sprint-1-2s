@@ -62,15 +62,18 @@ select * from Autores;
 select * from Generos;
 select * from Livros;
 
-select IdAutor,Titulo from Livros
+--select IdAutor,Titulo from Livros
 
-select IdGenero,Titulo from Livros
+--select IdGenero,Titulo from Livros
 
-select IdAutor,Titulo from Livros
+--select IdAutor,Titulo from Livros
 
-select IdAutor,IdGenero,Titulo from Livros
+select Livros.Titulo, Autores.NomeAutor from Livros
+inner join Autores on Autores.IdAutor = Livros.IdAutor
 
-select NomeAutor 
-	from Autores
-	join Livros
-			inner join on 
+select Livros.Titulo, Generos.Nome from Livros 
+inner join Generos on Generos.IdGenero = Livros.IdAutor;
+
+select Livros.Titulo, Generos.Nome, Autores.NomeAutor from Livros 
+inner join Generos on Generos.IdGenero = Livros.IdAutor
+inner join Autores on Autores.IdAutor = Livros.IdAutor;
