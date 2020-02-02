@@ -64,21 +64,6 @@ WHERE IdLivro = 3;
 
 delete from Autores
 where IdAutor = 1;
-------------------------------------------------extras-------------------------------------------------
-
-
-alter table Livros add Sinopse varchar(300) default null, DataLancamento date default null, Publicacao varchar(5) default null;
-
---insert into Lirvros IdLivro (Sinopse, DataLancamento, Publicacao)
---values  ('foafowawaof','10-10-2010','Sim'),
---		('foafowawaof','10-10-2010','Sim'),
---		('foafowawaof','10-10-2010','Sim'),
---		('foafowawaof','10-10-2010','Sim');
-
-
-select Livros.Titulo, Generos.Nome, Autores.NomeAutor, Livros.Sinopse, Livros.DataLancamento, Livros.Publicacao from Livros 
-inner join Generos on Generos.IdGenero = Livros.IdGenero
-inner join Autores on Autores.IdAutor = Livros.IdAutor;
 
 --------------------------------------------------DQL--------------------------------------------------
 	
@@ -99,5 +84,25 @@ select Livros.Titulo, Generos.Nome from Livros
 inner join Generos on Generos.IdGenero = Livros.IdGenero;
 
 select Livros.Titulo, Generos.Nome, Autores.NomeAutor from Livros 
+inner join Generos on Generos.IdGenero = Livros.IdGenero
+inner join Autores on Autores.IdAutor = Livros.IdAutor;
+
+------------------------------------------------Extras--------------------------------------------
+
+alter table Livros add Sinopse varchar(300) default null, DataLancamento date default null, Publicacao varchar(5) default null;
+
+update Livros
+set Sinopse = 'wasd sinopse legal'
+where IdLivro in (1,2,3,4,5);
+
+update Livros
+set DataLancamento = '13-08-2003'
+where IdLivro in (1,2,3,4,5);
+
+update Livros
+set Publicacao = 'Sim'
+where IdLivro in (1,2,3,4,5);
+
+select Livros.Titulo, Generos.Nome, Autores.NomeAutor, Livros.Sinopse, Livros.DataLancamento, Livros.Publicacao from Livros 
 inner join Generos on Generos.IdGenero = Livros.IdGenero
 inner join Autores on Autores.IdAutor = Livros.IdAutor;
