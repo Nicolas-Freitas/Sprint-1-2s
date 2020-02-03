@@ -1,9 +1,12 @@
+--------------------------------------------------DDL--------------------------------------------------
+
 CREATE DATABASE EstilosMusicais;
 USE EstilosMusicais;
 
 CREATE TABLE  EstilosMusicais(
 IdEstilosMusicais INT PRIMARY KEY IDENTITY,
 Nome VARCHAR(200),
+Descricao VARCHAR(200),
 );
 
 CREATE TABLE Artistas(
@@ -12,10 +15,7 @@ Nome VARCHAR(200),
 IdEstilosMusicais INT FOREIGN KEY REFERENCES EstilosMusicais (IdEstilosMusicais)
 );
 
-ALTER TABLE EstilosMusicais
-ADD Descricao VARCHAR(200);
-
---Comando de inserir dados
+--------------------------------------------------DML--------------------------------------------------
 
 INSERT INTO EstilosMusicais (Nome, Descricao)
 VALUES ('Rock', 'Estilo Musical'),
@@ -23,17 +23,16 @@ VALUES ('Rock', 'Estilo Musical'),
 
 INSERT INTO Artistas (Nome,IdEstilosMusicais)
 VALUES ('Post Malone', 1),
-	   ('Michael jackson', 2;
+	   ('Michael jackson', 2);
+
+--------------------------------------------------DQL--------------------------------------------------
 
 select*from EstilosMusicais;
 select*from Artistas;
 
-update Artistas
-set IdEstilosMusicais = 1
-where IdArtistas = 3;
+select Artistas.Nome, EstilosMusicais.Nome from Artistas
+inner join EstilosMusicais on EstilosMusicais.IdEstilosMusicais = Artistas.IdEstilosMusicais
 
-delete from EstilosMusicais
-where IdEstilosMusicais = 1;
 
-use RoteiroLivros
+
 
