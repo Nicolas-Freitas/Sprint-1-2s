@@ -1,6 +1,8 @@
 --------------------------------------------------DDL--------------------------------------------------
 create database OptusCorrect;
 use OptusCorrect;
+use master;
+drop database OptusCorrect;
 
 create table TipoUsuario(
 IdTipoUsuario int primary key identity,
@@ -103,9 +105,30 @@ where IdArtistas = 1;
 select IdArtistas,Nome from Albuns
 where DataLancamento = '10-12-2003';
 
+select * from Albuns where IdArtistas = 1;
+
 select IdArtistas,Nome from Albuns
 where IdEstilo = 1;
 
 select * from Albuns order by DataLancamento asc;
 		
 select Nome, IdArtistas from Albuns order by DataLancamento asc;
+
+--------------------- inner
+
+select Artistas.Nome as NomeArtista, Albuns.Nome, Albuns.DataLancamento from Artistas 
+inner join Albuns on Artistas.IdArtistas = Albuns.IdArtistas 
+where DataLancamento = '10-12-2003';
+
+
+---------------------------------------------------------------------------------
+
+
+select * from Albuns 
+inner join Artistas on Albuns.IdArtistas = Artistas.IdArtistas
+order by DataLancamento desc;
+---------------------------------------------------------------------------------
+select Artistas.Nome , Estilos.Nome  from Albuns 
+inner join Artistas on Artistas.IdArtistas = Albuns.IdArtistas
+inner join Estilos on Estilos.IdEstilo = Albuns.IdEstilo
+where Estilos.IdEstilo = 5;
