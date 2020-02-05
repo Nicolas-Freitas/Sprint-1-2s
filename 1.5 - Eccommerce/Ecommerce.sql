@@ -85,3 +85,15 @@ select * from Pedidos
 
 select Pedidos.IdPedido, Clientes.Nome, NrPedido, Pedidos.DataPedido, Pedidos.Status_ from Pedidos 
 inner join Clientes on Clientes.IdCliente = Pedidos.IdCliente;
+
+
+select * from Produtos
+
+SELECT AVG(Valor)
+FROM Produtos
+
+SELECT SUM(Valor)
+FROM Produtos
+
+SELECT COUNT(Valor)
+FROM Produtos
