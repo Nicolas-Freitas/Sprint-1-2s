@@ -8,6 +8,7 @@ using WebApplication1.Domain;
 using WebApplication1.Interfaces;
 using WebApplication1.Repositories;
 
+
 namespace WebApplication1.Controller
 {
     [Produces("application/json")]
@@ -27,6 +28,22 @@ namespace WebApplication1.Controller
         public IEnumerable <GeneroDomain> Get()
         {
             return _generoRepository.Listar();
+        }
+
+        [HttpPost]
+        public IActionResult Cadastrar(GeneroDomain generoDomain)
+        {
+            _generoRepository.Cadastrar(generoDomain);
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+
+        public IActionResult Alterar(GeneroDomain generoDomain, int id)
+        {
+            generoDomain.IdGenero = id;
+            _generoRepository.Alterar(generoDomain);
+            return Ok();
         }
     }
 }

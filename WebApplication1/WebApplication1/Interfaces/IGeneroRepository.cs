@@ -13,6 +13,8 @@ namespace WebApplication1.Interfaces
         /// </summary>
         /// <returns>Retorna uma lista de gêneros</returns>
         List<GeneroDomain> Listar();
+        void Cadastrar(GeneroDomain generoDomain);
+        void Alterar(GeneroDomain generoDomain);
     }
 }
 
