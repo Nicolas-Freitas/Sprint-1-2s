@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Domain;
+using WebApplication1.Interfaces;
+using WebApplication1.Repositories;
+
+namespace WebApplication1.Controller
+{
+    [Produces("application/json")]
+
+    [Route("api/[controller]")]
+    [ApiController]
+    public class GenerosController : ControllerBase
+    {
+        private IGeneroRepository _generoRepository { get; set; }
+
+        public GenerosController()
+        {
+            _generoRepository = new GeneroRepository();
+        }
+
+        [HttpGet]
+        public IEnumerable <GeneroDomain> Get()
+        {
+            return _generoRepository.Listar();
+        }
+    }
+}
